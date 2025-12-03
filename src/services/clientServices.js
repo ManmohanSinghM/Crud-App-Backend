@@ -1,9 +1,10 @@
 import { query } from "../db.js";
 
-// GET all employees
+// GET all clients
 export const getClients = async () => {
   try {
-    const { rows } = await query("SELECT * FROM employees ORDER BY id ASC");
+    // FIXED: Changed 'client_tb' to 'clients_tb'
+    const { rows } = await query("SELECT * FROM clients_tb ORDER BY id ASC");
     return rows;
   } catch (err) {
     console.error("DB Error in getClients:", err);
@@ -11,12 +12,13 @@ export const getClients = async () => {
   }
 };
 
-// CREATE employee
+// CREATE client
 export const createClient = async (clientData) => {
   const { name, email, job, rate, isactive } = clientData;
   try {
+    // FIXED: Changed 'employees' to 'clients_tb'
     const { rows } = await query(
-      `INSERT INTO employees (name, email, job, rate, isactive) 
+      `INSERT INTO clients_tb (name, email, job, rate, isactive) 
        VALUES ($1, $2, $3, $4, $5) RETURNING *`,
       [name, email, job, rate, isactive]
     );
@@ -27,12 +29,13 @@ export const createClient = async (clientData) => {
   }
 };
 
-// UPDATE employee
+// UPDATE client
 export const updateClient = async (clientId, clientData) => {
   const { name, email, job, rate, isactive } = clientData;
   try {
+    // FIXED: Changed 'employees' to 'clients_tb'
     const { rows } = await query(
-      `UPDATE employees 
+      `UPDATE clients_tb 
        SET name = $1, email = $2, job = $3, rate = $4, isactive = $5 
        WHERE id = $6 RETURNING *`,
       [name, email, job, rate, isactive, clientId]
@@ -44,10 +47,11 @@ export const updateClient = async (clientId, clientData) => {
   }
 };
 
-// DELETE employee
+// DELETE client
 export const deleteClient = async (clientId) => {
   try {
-    const { rowCount } = await query("DELETE FROM employees WHERE id = $1", [clientId]);
+    // FIXED: Changed 'employees' to 'clients_tb'
+    const { rowCount } = await query("DELETE FROM clients_tb WHERE id = $1", [clientId]);
     return rowCount > 0;
   } catch (err) {
     console.error("DB Error in deleteClient:", err);
@@ -55,11 +59,12 @@ export const deleteClient = async (clientId) => {
   }
 };
 
-// SEARCH employees
+// SEARCH clients
 export const searchClients = async (searchTerm) => {
   try {
+    // FIXED: Changed 'employees' to 'clients_tb'
     const { rows } = await query(
-      `SELECT * FROM employees 
+      `SELECT * FROM clients_tb 
        WHERE name ILIKE $1 OR email ILIKE $1 OR job ILIKE $1`,
       [`%${searchTerm}%`]
     );
