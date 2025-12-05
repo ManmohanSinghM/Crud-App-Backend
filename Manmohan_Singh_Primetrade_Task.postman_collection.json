@@ -39,7 +39,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Postman Test User\",\n  \"email\": \"postman@example.com\",\n  \"job\": \"API Tester\",\n  \"rate\": 150.00,\n  \"isactive\": true\n}"
+							"raw": "{\n  \"name\": \"Postman Test User\",\n  \"email\": \"postman{{$timestamp}}@example.com\",\n  \"job\": \"API Tester\",\n  \"rate\": 150.00,\n  \"isactive\": true\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/clients",
@@ -65,7 +65,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated@example.com\",\n  \"job\": \"Senior API Tester\",\n  \"rate\": 200.00,\n  \"isactive\": false\n}"
+							"raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated{{$timestamp}}@example.com\",\n  \"job\": \"Senior API Tester\",\n  \"rate\": 200.00,\n  \"isactive\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/clients/:id",
@@ -80,7 +80,7 @@
 								{
 									"key": "id",
 									"value": "1",
-									"description": "Enter the ID of the client you want to update (Check Get All Clients for IDs)"
+									"description": "REPLACE THIS '1' WITH A REAL ID FROM 'GET ALL CLIENTS'"
 								}
 							]
 						}
@@ -105,7 +105,7 @@
 								{
 									"key": "id",
 									"value": "1",
-									"description": "Enter the ID of the client you want to delete"
+									"description": "REPLACE THIS '1' WITH A REAL ID FROM 'GET ALL CLIENTS'"
 								}
 							]
 						}
