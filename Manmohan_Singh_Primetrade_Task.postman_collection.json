@@ -79,8 +79,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1",
-									"description": "REPLACE THIS '1' WITH A REAL ID FROM 'GET ALL CLIENTS'"
+									"value": "12",
+									"description": "REPLACE THIS WITH A REAL ID FROM 'GET ALL CLIENTS' IF 404 ERROR OCCURS"
 								}
 							]
 						}
@@ -104,8 +104,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1",
-									"description": "REPLACE THIS '1' WITH A REAL ID FROM 'GET ALL CLIENTS'"
+									"value": "12",
+									"description": "REPLACE THIS WITH A REAL ID FROM 'GET ALL CLIENTS' IF 404 ERROR OCCURS"
 								}
 							]
 						}
