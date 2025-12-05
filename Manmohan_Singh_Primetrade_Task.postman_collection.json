@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "a2e5d168-313b-4dc9-bc00-c10298a44af1",
+		"name": "Manmohan Singh - Primetrade Task (Client API)",
+		"description": "API Collection for the Client Management System hosted on Render. Import this to test the CRUD operations.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "ManmohanSingh-Primetrade"
+	},
+	"item": [
+		{
+			"name": "Clients CRUD",
+			"item": [
+				{
+					"name": "Get All Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clients",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Postman Test User\",\n  \"email\": \"postman@example.com\",\n  \"job\": \"API Tester\",\n  \"rate\": 150.00,\n  \"isactive\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clients",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Updated Name\",\n  \"job\": \"Senior API Tester\",\n  \"rate\": 200.00,\n  \"isactive\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clients/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Enter the ID of the client you want to update (Check Get All Clients for IDs)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clients/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Enter the ID of the client you want to delete"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clients/search?q=Alice",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Alice",
+									"description": "Search term"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://crud-app-backend-n0wq.onrender.com/api",
+			"type": "string"
+		}
+	]
+}
